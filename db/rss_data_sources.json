@@ -1,0 +1,26 @@
+[
+  {
+    "address"  : "http://rss.uol.com.br/feed/economia.xml"
+   ,"category" : "Economia"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "UOL Economia"
+   ,"keywords" : "uol economia"
+  },
+  {
+    "address"  : "http://rss.tecnologia.uol.com.br/especiais/ultnot/index.xml"
+   ,"category" : "Tecnologia"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "UOL Tecnologia"
+   ,"keywords" : "uol tecnologia reportagem especial"
+  },
+  {
+    "address"  : "http://feeds.bbci.co.uk/news/rss.xml"
+   ,"category" : "News"
+   ,"language" : "en"
+   ,"country"  : "uk"
+   ,"domain"   : "BBC News"
+   ,"keywords" : "bcc new home"
+  }
+]

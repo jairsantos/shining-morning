@@ -1,11 +1,9 @@
-module.exports = exports = Database;
-
-function Database() {
+Database = function() {
   var config   = require('./config')
     , mongoose = require('mongoose')
     ;
-
-  this.start = function() {
-    mongoose.connect(config.host_addr + config.database);
-  }
+  mongoose.connect(config.host_addr + config.database);
+  return mongoose;
 }
+
+module.exports = exports = Database;
