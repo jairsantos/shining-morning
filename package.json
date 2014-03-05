@@ -1,0 +1,9 @@
+{
+  "name": "shinning-morning",
+  "version": "0.0.1",
+  "dependencies": {
+    "mongoose": "~3.8.8",
+    "feedparser": "~0.16.6",
+    "request": "~2.34.0"
+  }
+}
