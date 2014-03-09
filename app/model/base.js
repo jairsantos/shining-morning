@@ -1,4 +1,4 @@
-var Database = require('../db/database')
+var Database = require('../../db/database')
   , database = new Database()
   ;
 

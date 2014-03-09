@@ -1,5 +1,5 @@
-require('../model/base');
-require('../model/rss_source');
+require('../app/model/base');
+require('../app/model/rss_source');
 
 var rss_sources = require('./rss_data_sources');
 
