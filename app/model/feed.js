@@ -1,10 +1,10 @@
 var FeedParser = require('feedparser');
 
+var Queue = Array;
+
 // TODO: Temporary name for the instance. Look for a
 // better name if possible.
-Feed = function(){
-  this.find = function(){
-
-  };
+FeedFilter = function(){
+  
 };
 module.exports.Feed = Feed;
