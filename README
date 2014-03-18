@@ -1,13 +1,11 @@
 This project is an academic trial.
 
-[![Code Climate](https://codeclimate.com/github/jairsantos/shining-morning.png)](https://codeclimate.com/github/jairsantos/shining-morning)
-
 -
 Enviroment
---
+-
 This project is develop over NodeJS.
 
 -
 Dependences
---
+-
 To install the dependences, run the command `npm install`
