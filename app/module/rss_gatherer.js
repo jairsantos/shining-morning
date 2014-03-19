@@ -1,3 +1,13 @@
+// This module is responsible for getting RSS content 
+// from the internet.
+// Caller have to pass as a parameter the rss links which 
+// is going to be gather.
+
+// Module's dependences
+// FeedParses: It is a module which parses a RSS into Json;
+// request: It is a module which makes the request to the Rss Souces;
+// util: Module from NodeJS. Here it is beeing used from inheritness.
+// events: It is the class which is responsible for emitting events.
 var FeedParser = require('feedparser')
   , request    = require('request')
   , util       = require('util')
@@ -9,6 +19,7 @@ RssGatherer = function(){
   events.EventEmitter.call(this);
 };
 
+// This point say that RssGather will inherit EventEmitter
 util.inherits(RssGatherer, events.EventEmitter);
 
 var fn = RssGatherer.prototype;
