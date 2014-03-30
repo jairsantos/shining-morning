@@ -1,5 +1,6 @@
 require('./app/model/base');
 require('./app/model/rss_source');
+require('./app/model/filtro');
 
 // RssGatherer is the system's module which is responsible 
 // for getting news from the Intenet using RSS links.
@@ -21,7 +22,18 @@ rss_stream = RssSource.find(user_filter_parameters).stream();
 // RSS Content comes from the News Website response.
 rss_gatherer.on('data', function(data){ 
   // TODO: Here will be used to call filter funcion.
-  console.log(data.title);
+  
+  var filtro = {
+  	author : null,
+  	title : "tecnologia",
+  	categories: [ 'noticias' ]
+  };
+
+  console.log(data);
+  console.log(filtro);
+
+  filtrarFeed(data, filtro);
+
 });
 
 // This point listen RSSSource.find() results. Everytime database
