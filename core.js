@@ -1,6 +1,7 @@
 require('./app/model/base');
 require('./app/model/rss_source');
-require('./app/model/filtro');
+
+var Filter = require('./app/module/filtro');
 
 // RssGatherer is the system's module which is responsible 
 // for getting news from the Intenet using RSS links.
@@ -23,16 +24,20 @@ rss_stream = RssSource.find(user_filter_parameters).stream();
 rss_gatherer.on('data', function(data){ 
   // TODO: Here will be used to call filter funcion.
   
+  var filter = new Filter();
+
   var filtro = {
   	author : null,
-  	title : "tecnologia",
-  	categories: [ 'noticias' ]
+  	title : "Malaysia",
+  	categories: null
   };
 
-  console.log(data);
-  console.log(filtro);
+  filter.on('filter:complete', function(filteredFeed){
+var q = require('querystring');
+    console.log(filteredFeed);
+  });
 
-  filtrarFeed(data, filtro);
+  filter.filtrarFeed(data, filtro);
 
 });
 
