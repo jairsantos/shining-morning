@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>WebNews</title>
+
+    <meta charset="utf-8"/>
+  </head>
+
+  <body>
+    <h1>Notícias Fresquinhas</h1>
+
+    <ul id="newsList"></ul>
+
+    <script type="text/javascript">
+      !function(){
+        var newList = document.getElementById('newsList');
+        var ws = new WebSocket('ws://localhost:8080');
+
+        ws.addEventListener('message', function(message){
+
+          var rssData = JSON.parse(message.data);
+
+          var li = document.createElement('li');
+          var a  = document.createElement('a');
+
+          a.innerHTML = rssData.title;
+          a.href = rssData.link;
+          a.target = '_blank';
+
+          li.appendChild(a);
+
+          newsList.appendChild(li);
+        });
+
+        ws.addEventListener('open', function(message){
+          this.send(JSON.stringify({ language : 'en' }));
+        });
+      }();
+    </script>
+  </body>
+</html>
