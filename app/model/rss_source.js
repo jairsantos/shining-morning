@@ -1,4 +1,5 @@
-RssSource = ModelBase('RssSource', {
+var ModelBase = require('./base');
+var RssSource = ModelBase('RssSource', {
   "address"  : String
  ,"category" : String 
  ,"language" : String 
@@ -6,3 +7,4 @@ RssSource = ModelBase('RssSource', {
  ,"domain"   : String 
  ,"keywords" : String 
 });
+module.exports = RssSource;
