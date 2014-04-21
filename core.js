@@ -1,18 +1,16 @@
 var RssSource   = require('./app/model/rss_source')
   , Websocket   = require('./app/module/websocket')
   , RssGatherer = require('./app/module/rss_gatherer')
-  , Filter      = require('./app/module/filtro')
+  , FeedFilter  = require('./app/module/filter')
   , websocket   = new Websocket()
   , rssGatherer = new RssGatherer()
-  , filter      = new Filter()
+  , feedFilter  = new FeedFilter()
+  , filterParams
   ;
 
-// Teste
-var filtro = {
-  author     : null,
-  title      : "Cubans",
-  categories : null
-};
+filterParams = {
+  title: 'Cubans'
+}
 
 websocket.on('request:start', function(userFilterParams){
   userFilter = JSON.parse(userFilterParams);
@@ -26,10 +24,10 @@ websocket.on('request:start', function(userFilterParams){
 });
 
 rssGatherer.on('data', function(data){
-  filter.filtrarFeed(data, filtro);
+  feedFilter.proc(data, filterParams);
 });
 
-filter.on('filter:complete', function(data){
+feedFilter.on('data', function(data){
   websocket.response(JSON.stringify(data));
 });
 
