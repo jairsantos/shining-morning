@@ -8,12 +8,36 @@
    ,"keywords" : "uol economia"
   },
   {
-    "address"  : "http://rss.tecnologia.uol.com.br/especiais/ultnot/index.xml"
-   ,"category" : "Tecnologia"
+    "address"  : "http://www.estadao.com.br/rss/politica.xml"
+   ,"category" : "Política"
    ,"language" : "pt"
    ,"country"  : "br"
-   ,"domain"   : "UOL Tecnologia"
-   ,"keywords" : "uol tecnologia reportagem especial"
+   ,"domain"   : "Estadão Economia"
+   ,"keywords" : "estadao política"
+  },
+  {
+    "address"  : "http://www.estadao.com.br/rss/esportes.xml"
+   ,"category" : "Esporte"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "Estadão Esporte"
+   ,"keywords" : "estadao esporte"
+  },
+  {
+    "address"  : "http://www.estadao.com.br/rss/saude.xml"
+   ,"category" : "Saúde"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "Estadão Saúde"
+   ,"keywords" : "estadao saúde"
+  },
+  {
+    "address"  : "http://www.estadao.com.br/rss/ciencia.xml"
+   ,"category" : "Ciência"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "Estadão Ciência"
+   ,"keywords" : "estadao ciência"
   },
   {
     "address"  : "http://feeds.bbci.co.uk/news/rss.xml"
@@ -22,5 +46,21 @@
    ,"country"  : "uk"
    ,"domain"   : "BBC News"
    ,"keywords" : "bcc new home"
+  },
+  {
+    "address"  : "http://feeds.feedburner.com/NoticiasINFO-Ciencia"
+   ,"category" : "Ciência"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "Info Ciência"
+   ,"keywords" : "info ciência"
+  },
+  {
+    "address"  : "http://g1.globo.com/dynamo/economia/rss2.xml"
+   ,"category" : "Economia"
+   ,"language" : "pt"
+   ,"country"  : "br"
+   ,"domain"   : "G1 Economia"
+   ,"keywords" : "g1 economia"
   }
 ]

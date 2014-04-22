@@ -1,21 +1,26 @@
-var RssSource   = require('./app/model/rss_source')
-  , Websocket   = require('./app/module/websocket')
-  , RssGatherer = require('./app/module/rss_gatherer')
-  , FeedFilter  = require('./app/module/filter')
-  , websocket   = new Websocket()
-  , rssGatherer = new RssGatherer()
-  , feedFilter  = new FeedFilter()
-  , filterParams
+var RssSource    = require('./app/model/rss_source')
+  , Websocket    = require('./app/module/websocket')
+  , RssGatherer  = require('./app/module/rss_gatherer')
+  , FeedFilter   = require('./app/module/filter')
+  , Params       = require('./app/utils/params')
+  , websocket    = new Websocket()
+  , rssGatherer  = new RssGatherer()
+  , feedFilter   = new FeedFilter()
+  , filterParams = new Params()
   ;
 
-filterParams = {
-  title: 'Cubans'
-}
+var PRE_FILTERS = ['language'];
+
+var FILTERS = ['title']
 
 websocket.on('request:start', function(userFilterParams){
-  userFilter = JSON.parse(userFilterParams);
+  var userFilter = JSON.parse(userFilterParams);
 
-  rssFilter = RssSource.find(userFilter);
+  filterParams.merge(userFilter);
+
+  var preFilter = filterParams.select(PRE_FILTERS);
+
+  rssFilter = RssSource.find(preFilter);
   rssStream = rssFilter.stream();
 
   rssStream.on('data', function(data){
@@ -24,7 +29,7 @@ websocket.on('request:start', function(userFilterParams){
 });
 
 rssGatherer.on('data', function(data){
-  feedFilter.proc(data, filterParams);
+  feedFilter.proc(data, filterParams.select(FILTERS));
 });
 
 feedFilter.on('data', function(data){
