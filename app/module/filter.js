@@ -12,8 +12,12 @@ var fn = FeedFilter.prototype;
 
 fn.proc = function(data, filterParams) {
   for(param in filterParams) {
-    var filter = new RegExp(filterParams[param]);
-    if (data[param].match(filter)) {
+    var lowerFilter = filterParams[param].toLowerCase()
+      , lowerData   = data[param].toLowerCase()
+      , filter      = new RegExp(lowerFilter)
+      ;
+
+    if (lowerData.match(filter)) {
       this.emit('data', data);
       break;
     }
