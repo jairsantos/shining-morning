@@ -15,7 +15,7 @@ var FeedParser = require('feedparser')
   ;
 
 // TODO: Need to do the error's treatment
-RssGatherer = function(){
+var RssGatherer = function(){
   events.EventEmitter.call(this);
 };
 
@@ -29,14 +29,15 @@ fn.gather = function(rss_source){
     , feedparser = new FeedParser()
     ;
 
-  req.on('response', function(){ this.pipe(feedparser); });
+  req.on('response', function(){ 
+    this.pipe(feedparser); 
+  });
 
-  // TODO: Should refactor this name of this var "_this"
-  _this = this;
+  var self = this;
 
-  feedparser.on('readable', function(){ 
+  feedparser.on('readable', function(){
     while(item = this.read()) {
-      _this.emit('data', item);
+      self.emit('data', item);
     }
   });
 };
